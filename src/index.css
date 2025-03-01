@@ -39,8 +39,10 @@ a {
 }
 
 body {
-  margin: 0;
+  margin: 42px 42px 0 42px;
   display: flex;
+  background-color: #1E1E1E;
+  color: white;
   min-width: 320px;
   min-height: 100vh;
 }
