@@ -16,5 +16,5 @@ export const getMatches = async () => {
         },
         method: "GET", 
     })
-    .then((res) => checkResponse(res))
+    .then(checkResponse)
   };

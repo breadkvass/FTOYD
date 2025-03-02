@@ -1,5 +1,6 @@
 import { createContext, FC, ReactElement, useState } from "react";
 import { Match } from "./types";
+
 type MatchesProps = {
     matches: Match[];
     isLoading: boolean;

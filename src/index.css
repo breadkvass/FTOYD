@@ -50,11 +50,9 @@ h1 {
   font-family: 'Tactic Sans', Arial, sans-serif;
   font-style: italic;
   font-weight: 600;
-  margin: 0;
-  padding: 0;
 }
 
-p {
+p, ul, li, h1, h2, h3 {
   margin: 0;
   padding: 0;
 }
@@ -68,4 +66,8 @@ button {
 
 button:disabled {
   cursor: auto;
+}
+
+ul {
+  list-style: none;
 }
