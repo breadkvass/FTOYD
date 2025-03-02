@@ -13,4 +13,4 @@
 
 ## Размещено
 
-www.ftoyd.sulimova.ru
+https://ftoyd.sulimova.ru/
