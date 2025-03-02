@@ -4,6 +4,7 @@ import { MatchesContext } from '../../utils/matchesContext';
 import Card from '../../components/card/card';
 import AlertIcon from '../../components/icons/alertIcon';
 import RefreshIcon from '../../components/icons/refreshIcon';
+import Skeleton from '../../components/skeleton/skeleton';
 import styles from './mainPage.module.css';
 
 const MainPage = () => {
@@ -47,16 +48,15 @@ const MainPage = () => {
                     </button>
                 </div>
             </div>
-            {matches.isLoading ? (
-                <p>Загрузка</p>
-            ) : (
-                <ul className={styles.cards}>
-                {visibleMatches && visibleMatches.map((match, ind) => 
-                    <Card key={ind} match={match} />
+            <ul className={styles.cards}>
+                {matches.isLoading ? (
+                    <Skeleton length={5} />
+                ) : (
+                    visibleMatches && visibleMatches.map((match, ind) => 
+                        <Card key={ind} match={match} />
+                    )
                 )}
-                </ul>
-            )}
-            
+            </ul>
         </div>
     )
 }

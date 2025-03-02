@@ -21,7 +21,7 @@ type MatchesContextType = [
 const MatchesContext = createContext<MatchesContextType>([
   {
     matches: [],
-    isLoading: false,
+    isLoading: true,
     isError: false
   },
   {
