@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 20px;
     width: calc(100vw - 104px);
-    margin: 42px 42px 0 42px;
+    margin: 42px;
 }
 
 .header {
