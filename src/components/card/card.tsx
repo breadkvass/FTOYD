@@ -31,12 +31,12 @@ const Card: FC<CardProps> = ({match}) => {
 
     return (
         <li className={styles.card}>
-            <Command commandName={match.homeTeam.name} isReverse={false}/>
+            <Command commandName={match.awayTeam.name} isReverse={false}/>
             <div className={styles.result}>
-                <p className={styles.score}>{match.homeScore + ' : ' + match.awayScore}</p>
+                <p className={styles.score}>{match.awayScore + ' : ' + match.homeScore}</p>
                 <p className={statusStyle}>{status}</p>
             </div>
-            <Command commandName={match.awayTeam.name} isReverse/>
+            <Command commandName={match.homeTeam.name} isReverse/>
         </li>
     )
 }
