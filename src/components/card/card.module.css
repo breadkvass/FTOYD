@@ -1,0 +1,44 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background-color: #0B0E12;
+    border-radius: 4px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.score {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.scheduled {
+    padding: 6px 8px;
+    background-color: #EB6402;
+}
+
+.finished {
+    padding: 6px 21px;
+    background-color: #EB0237;
+
+}
+
+.ongoing {
+    padding: 6px 34px;
+    background-color: #43AD28;
+}

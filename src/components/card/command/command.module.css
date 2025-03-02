@@ -1,0 +1,26 @@
+.command {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: auto;
+    width: max-content;
+    gap: 14px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.img {
+    width: 48px;
+    aspect-ratio: 1 / 1;
+}
