@@ -57,3 +57,10 @@
     font-weight: 600;
     color: white;
 }
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
