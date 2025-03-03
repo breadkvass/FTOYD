@@ -52,8 +52,30 @@
     gap: 10px;
 }
 
+.refresh:disabled svg {
+    animation: rotation 1s linear infinite;
+}
+
+.refresh:disabled svg path {
+    fill: #787878;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
 .refresh:active {
     background-color: #A01131;
+}
+
+.refresh:disabled {
+    background-color: #701328;
+    color: #787878;
 }
 
 .refresh p {

@@ -42,7 +42,7 @@ const MainPage = () => {
                         </div>
                     }
                     
-                    <button className={styles.refresh} onClick={() => onRefresh()}>
+                    <button className={styles.refresh} onClick={() => onRefresh()} disabled={matches.isLoading}>
                         <p>Обновить</p>
                         <RefreshIcon />
                     </button>
