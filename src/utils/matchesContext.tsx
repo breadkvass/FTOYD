@@ -1,72 +1,63 @@
 import { createContext, FC, ReactElement, useState } from "react";
 import { Match } from "./types";
 
-type MatchesProps = {
+type MatchesState = {
     matches: Match[];
     isLoading: boolean;
     isError: boolean;
-}
+};
 
 type MatchesActions = {
     setMatches: (matches: Match[]) => void;
     setIsLoading: (isLoading: boolean) => void;
     setIsError: (isError: boolean) => void;
-}
+};
 
-type MatchesContextType = [
-  matches: MatchesProps,
-  actions: MatchesActions,
-];
+type MatchesContextType = {
+    state: MatchesState;
+    actions: MatchesActions;
+};
 
-const MatchesContext = createContext<MatchesContextType>([
-  {
-    matches: [],
-    isLoading: true,
-    isError: false
-  },
-  {
-    setMatches: () => {},
-    setIsLoading: () => {},
-    setIsError: () => {}
-  }
-] as MatchesContextType);
+const MatchesContext = createContext<MatchesContextType>({
+    state: {
+        matches: [],
+        isLoading: true,
+        isError: false
+    },
+    actions: {
+        setMatches: () => {},
+        setIsLoading: () => {},
+        setIsError: () => {}
+    }
+});
 
 type MatchesContextProviderProps = {
-  children: ReactElement;
-}
+    children: ReactElement;
+};
 
 const MatchesContextProvider: FC<MatchesContextProviderProps> = ({ children }) => {
-    const [state, setState] = useState<MatchesProps>({
+    const [state, setState] = useState<MatchesState>({
         matches: [],
         isLoading: true,
         isError: false
     });
 
     const setMatches = (matches: Match[]) => {
-      setState((prev: MatchesProps)  => ({
-        ...prev,
-        matches
-      }));
-    }
+        setState((prev) => ({ ...prev, matches }));
+    };
 
     const setIsLoading = (isLoading: boolean) => {
-      setState((prev: MatchesProps)  => ({
-        ...prev,
-        isLoading
-      }));
-    }
+        setState((prev) => ({ ...prev, isLoading }));
+    };
 
     const setIsError = (isError: boolean) => {
-      setState((prev: MatchesProps)  => ({
-        ...prev,
-        isError
-      }));
-    }
-  
+        setState((prev) => ({ ...prev, isError }));
+    };
+
     return (
-      <MatchesContext.Provider value={[state, {setMatches, setIsLoading, setIsError}]}>
-        {children}
-      </MatchesContext.Provider>
+        <MatchesContext.Provider value={{ state, actions: { setMatches, setIsLoading, setIsError } }}>
+            {children}
+        </MatchesContext.Provider>
     );
 };
 

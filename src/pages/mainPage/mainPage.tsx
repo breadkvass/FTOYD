@@ -8,15 +8,18 @@ import Skeleton from '../../components/skeleton/skeleton';
 import styles from './mainPage.module.css';
 
 const MainPage = () => {
-    const [ matches, { setMatches, setIsLoading, setIsError } ] = useContext(MatchesContext);
+    const {
+        state: { matches, isLoading, isError},
+        actions: {setMatches, setIsLoading, setIsError}
+    } = useContext(MatchesContext);
 
     useEffect(() => {
         getAllMatches()
     }, [])
 
     const visibleMatches = useMemo(() => {
-        return matches.matches
-    }, [matches.isLoading])
+        return matches
+    }, [isLoading])
 
     const getAllMatches = () => {
         getMatches()
@@ -35,21 +38,21 @@ const MainPage = () => {
             <div className={styles.header}>
                 <h1 className={styles.title}>Match Tracker</h1>
                 <div className={styles.update}>
-                    {matches.isError && 
+                    {isError && 
                         <div className={styles.warning}>
                             <AlertIcon />
                             <p className={styles.error}>Ошибка: не удалось загрузить информацию</p>
                         </div>
                     }
                     
-                    <button className={styles.refresh} onClick={() => onRefresh()} disabled={matches.isLoading}>
+                    <button className={styles.refresh} onClick={() => onRefresh()} disabled={isLoading}>
                         <p>Обновить</p>
                         <RefreshIcon />
                     </button>
                 </div>
             </div>
             <ul className={styles.cards}>
-                {matches.isLoading ? (
+                {isLoading ? (
                     <Skeleton length={5} />
                 ) : (
                     visibleMatches && visibleMatches.map((match, ind) => 
