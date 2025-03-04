@@ -1,4 +1,5 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useContext, useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
 import { getMatches } from '../../utils/api';
 import { MatchesContext } from '../../utils/matchesContext';
 import Card from '../../components/card/card';
@@ -16,10 +17,6 @@ const MainPage = () => {
     useEffect(() => {
         getAllMatches()
     }, [])
-
-    const visibleMatches = useMemo(() => {
-        return matches
-    }, [isLoading])
 
     const getAllMatches = () => {
         getMatches()
@@ -44,7 +41,6 @@ const MainPage = () => {
                             <p className={styles.error}>Ошибка: не удалось загрузить информацию</p>
                         </div>
                     }
-                    
                     <button className={styles.refresh} onClick={() => onRefresh()} disabled={isLoading}>
                         <p>Обновить</p>
                         <RefreshIcon />
@@ -55,8 +51,8 @@ const MainPage = () => {
                 {isLoading ? (
                     <Skeleton length={5} />
                 ) : (
-                    visibleMatches && visibleMatches.map((match, ind) => 
-                        <Card key={ind} match={match} />
+                    matches && matches.map((match) => 
+                        <Card key={uuid()} match={match} />
                     )
                 )}
             </ul>
