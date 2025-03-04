@@ -15,7 +15,8 @@ const MainPage = () => {
     } = useContext(MatchesContext);
 
     useEffect(() => {
-        getAllMatches()
+        setIsLoading(true);
+        getAllMatches();
     }, [])
 
     const getAllMatches = () => {

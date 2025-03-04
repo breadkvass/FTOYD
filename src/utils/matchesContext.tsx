@@ -21,7 +21,7 @@ type MatchesContextType = {
 const MatchesContext = createContext<MatchesContextType>({
     state: {
         matches: [],
-        isLoading: true,
+        isLoading: false,
         isError: false
     },
     actions: {
@@ -38,7 +38,7 @@ type MatchesContextProviderProps = {
 const MatchesContextProvider: FC<MatchesContextProviderProps> = ({ children }) => {
     const [state, setState] = useState<MatchesState>({
         matches: [],
-        isLoading: true,
+        isLoading: false,
         isError: false
     });
 
